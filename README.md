@@ -1,5 +1,5 @@
 # Monte-Carlo-Bloch-Equations
-Solving the Bloch equations for 2- and 3-level systems with cavity electric fields via Monte-Carlo Methods
+###Solving the Bloch equations for 2- and 3-level systems with cavity electric fields via Monte-Carlo Methods
 
 This code was developed during my Master's thesis on the Modelling and Optimization of Laser Spectroscopy of the Hyperfine Ground-state in Muonic Hydrogen
 at [NOVA-SST](https://www.fct.unl.pt/en)
