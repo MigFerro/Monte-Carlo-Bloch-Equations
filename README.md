@@ -4,8 +4,10 @@
 This code was developed during my Master's thesis on the Modelling and Optimization of Laser Spectroscopy of the Hyperfine Ground-state in Muonic Hydrogen
 at [NOVA-SST](https://www.fct.unl.pt/en)
 
-The aim of this code is to provide a framework in which the Bloch equations can be solved for the electric field of a laser inside a simple cavity.
-This electric field is assumed be formed by the sum of successive pulse reflections inside the cavity.
-The Doppler effect is included directly in the calculation of the electric field by sampling random velocities from Maxwell-Boltzmann distributions.
+It aims to provide a framework in which the Bloch equations can be solved for the electric field of a laser inside a simple cavity.
 
-<img src="./img/cavity_field_dopp_scheme.png" width="400"> 
+This electric field is assumed be formed by the sum of successive pulse reflections inside the cavity.
+
+                                <img src="./img/cavity_field_dopp_scheme.png" width="400"> 
+
+The Doppler effect is included directly in the calculation of the electric field by sampling random velocities from Maxwell-Boltzmann distributions.
