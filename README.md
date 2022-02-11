@@ -8,6 +8,8 @@ It aims to provide a framework in which the Bloch equations can be solved for th
 
 This electric field is assumed be formed by the sum of successive pulse reflections inside the cavity.
 
-                                <img src="./img/cavity_field_dopp_scheme.png" width="400"> 
+<p align="center" width="100%">
+    <img src="./img/cavity_field_dopp_scheme.png" width="400"> 
+</p>
 
 The Doppler effect is included directly in the calculation of the electric field by sampling random velocities from Maxwell-Boltzmann distributions.
