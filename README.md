@@ -19,3 +19,5 @@ The Doppler effect is included directly in the calculation of the electric field
     <img src="./img/vel_animation.gif" width="400">
 </p>
  
+With such a field it is then possible to solve the Bloch equations numerically (Runge-Kutta 4th order) to obtain the energy level populations.
+
