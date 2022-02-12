@@ -14,4 +14,8 @@ This electric field is assumed be formed by the sum of successive pulse reflecti
 
 The Doppler effect is included directly in the calculation of the electric field by sampling random velocities from Maxwell-Boltzmann distributions.
 
-<img src=".img/field_animation.gif" width="400"> <img src="./img/vel_animation.gif" width="400"> 
+<p align="center" width="100%">
+    <img src=".img/field_animation.gif" width="400">
+    <img src="./img/vel_animation.gif" width="400">
+</p>
+ 
