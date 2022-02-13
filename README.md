@@ -28,6 +28,6 @@ solveBlochRK4_3lvl(t, rabi, params, bound)
 where the 2-level system is treated as a particular case of the more complete 3-level system via an appropriated choice of the `params` input. 
 
 <p align="center" width="100%">
-    <img src="./img/field.png" width="400">
-    <img src="./img/2lvl_pop.png" width="400">
+    <img src="./img/field.png" width="500">
+    <img src="./img/2lvl_pop.png" width="500">
 </p>
