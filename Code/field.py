@@ -397,7 +397,7 @@ def cavityField_doppVel(tau, t0, D, R, m, T, carrier_freq, minAmp):
 
 	'''
 
-	t, maxN = t_maxn(tau, t0, D, R, minAmp)
+	t, maxN = t_maxn_dopp(tau, t0, D, R, minAmp)
 
 	phi = np.random.uniform(0.0, 2*np.pi, size=maxN)
 
@@ -457,7 +457,7 @@ def cavityField_doppVel_rawCycle(t, tau, t0, D, R, m, T, carrier_freq, maxN):
 
 
 @njit(parallel=True)
-def simul_fields_doppVel(nsim, tau, D, R, m, T, carrier_freq):
+def simul_fields_doppVel(nsim, tau, D, R, m, T, carrier_freq, minAmp=0.01):
 
 	'''
 	Generates several Doppler shifted cavity fields in a cycle (parallelized with Numba)
@@ -481,7 +481,7 @@ def simul_fields_doppVel(nsim, tau, D, R, m, T, carrier_freq):
 
 	'''
 
-	Efield_dopp, t, maxN = cavityField_doppVel(tau, 4*tau, D, R, 0.01, m, T, carrier_freq)
+	Efield_dopp, t, maxN = cavityField_doppVel(tau, 4*tau, D, R, m, T, carrier_freq, minAmp)
 
 	Efields_dopp_arr = np.zeros(shape=(nsim, len(t)), dtype=np.csingle)
 
