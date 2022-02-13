@@ -12,14 +12,20 @@ This electric field is assumed be formed by the sum of successive pulse reflecti
     <img src="./img/cavity_field_dopp_scheme.png" width="400"> 
 </p>
 
-The Doppler effect is included directly in the calculation of the electric field by sampling random velocities from Maxwell-Boltzmann distributions.
+The Doppler effect is included directly in the calculation of the electric field through the functions `cavityField_doppVel`, where a new velocity is sampled from a Maxwell-Boltzmann (MB) distribution at each pulse reflection, and `cavityField_doppPath`, where a random path motion is given to the particles, with Poisson-sampled collisions and velocities also sampled from MB distributions.
 
 <p align="center" width="100%">
     <img src="./img/field_animation.gif" width="400">
     <img src="./img/vel_animation.gif" width="400">
 </p>
  
-With such a field it is then possible to solve the Bloch equations numerically (Runge-Kutta 4th order) to obtain the energy level populations.
+With suchs fields it is then possible to solve the Bloch equations numerically (Runge-Kutta 4th order) to obtain the Doppler-shifted energy level populations for 2- and 3-level systems through the function
+
+```
+solveBlochRK4_3lvl(t, rabi, params, bound)
+```
+
+where the 2-level system is treated as a particular case of the more complete 3-level system via an appropriated choice of the `params` input. 
 
 <p align="center" width="100%">
     <img src="./img/field.png" width="400">
