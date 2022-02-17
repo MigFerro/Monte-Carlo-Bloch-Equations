@@ -38,16 +38,14 @@ where the 2-level system is treated as a particular case of the more complete 3-
 -This code was built for the study of the energy level populations of the ground-state hyperfine levels of muonic hydrogen, hence the very specific constants defined in constants.py
 
 -Two possibilities where implemented for introducing the Doppler effect in the cavity electric field:
-    
-    1. `cavityField_doppVel` - new velocity sampled from a MB distribution at each pulse reflection (lighter computation)
-    2. `cavityField_doppPath` - random path motion generated at each reflection (heavier computation)
+ 1. `cavityField_doppVel` - new velocity sampled from a MB distribution at each pulse reflection (lighter computation)
+ 2. `cavityField_doppPath` - random path motion generated at each reflection (heavier computation)
     
     As far as it has been tested both implementation produce equivalent results. Note that with `cavityField_doppPath` the only effect of collisions in the field is to shift the Doppler frequency. Collision damping is still added in the population dynamics through apporpriate decay rates in the Bloch equations.
     
 -`solveBlochRK4_3lvl` can be used to calculate the populations of both 2- and 3- level systems. The dynamics of these systems will depend on the input parameters of the function. 
-
-    -The input `params` is where the detune fequency and decay rates are defined
-    -The  input `rabi` carries the information about the applied electric field.
+ -The input `params` is where the detune fequency and decay rates are defined
+ -The  input `rabi` carries the information about the applied electric field.
    
    
 ## Example Uses
