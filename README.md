@@ -150,7 +150,7 @@ bound = np.array([1.0+0.0j, 0.0j, 0.0j, 0.0j])
 rho = bloch.solveBlochRK4_3lvl(t, rabi, params, bound)
 ```
 
-From which we get the results:
+Plotting the results:
 
 <p align="center" width="100%">
     <img src="./img/example_2.png" width="800">
