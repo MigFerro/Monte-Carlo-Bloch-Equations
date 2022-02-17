@@ -55,7 +55,7 @@ where the 2-level system is treated as a particular case of the more complete 3-
 Consider a 2-level system with spontaneous emission, represented by the following scheme:
 
 <p align="center" width="100%">
-    <img src="./img/2level_system.png" width="400">
+    <img src="./img/2level_system.png" width="200">
 </p>
 
 We can obtain the energy level populations of such system with the following script:
@@ -94,7 +94,7 @@ Producing the populations:
 Consider a 3-level system with inelastic collisions to a _dark state_, as represented by the scheme:
 
 <p align="center" width="100%">
-    <img src="./img/3level_system.png" width="400">
+    <img src="./img/3level_system.png" width="200">
 </p>
 
 To calculate the energy level population of hypefine ground-state levels of muonic hydrgoen under this sceneario we can use the following script:
