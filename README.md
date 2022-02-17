@@ -151,8 +151,9 @@ rho = bloch.solveBlochRK4_3lvl(t, rabi, params, bound)
 ```
 
 From which we get the results:
-(**Note:** these will be different at every try - field has a random nature)
 
 <p align="center" width="100%">
     <img src="./img/example_2.png" width="800">
 </p>
+
+**Note:** these results will be different at every try - field has a random nature
