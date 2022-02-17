@@ -60,7 +60,7 @@ import bloch
 t = np.arange(0, 10*np.pi, 0.1)
 
 #define the desired paramters
-rabi = 1.0
+rabi = np.ones(shape=len(t))
 detune = 0.0
 gamma_sp = rabi/5 #spontaneous emission rate
 
