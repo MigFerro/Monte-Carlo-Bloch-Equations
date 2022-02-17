@@ -52,7 +52,7 @@ where the 2-level system is treated as a particular case of the more complete 3-
 
 #### 1. 2-level system with constant amplitude field
 
-```
+```python
 import numpy as np
 import bloch
 
