@@ -62,7 +62,7 @@ t = np.arange(0, 10*np.pi, 0.1)
 #define the desired paramters
 rabi = np.ones(shape=len(t))
 detune = 0.0
-gamma_sp = rabi/5 #spontaneous emission rate
+gamma_sp = 1/5 #spontaneous emission rate
 
 params = np.array([detune, gamma_sp, 0.0, 0.0, 0.0, 0.0]) #advisable to define params as a numpy array
 
