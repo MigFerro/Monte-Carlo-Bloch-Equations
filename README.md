@@ -73,7 +73,7 @@ bound = np.array([1.0+0.0j, 0.0j, 0.0j, 0.0j])
 rho = bloch.solveBlochRK4_3lvl(t, rabi, params, bound)
 
 ```
-
+a
 <p align="center" width="100%">
     <img src="./img/example_1.png" width="400"> 
 </p>
