@@ -94,7 +94,7 @@ Producing the populations:
 Consider a 3-level system with inelastic collisions to a _dark state_, as represented by the scheme:
 
 <p align="center" width="100%">
-    <img src="./img/3level_system.png" width="300">
+    <img src="./img/3level_system.png" width="400">
 </p>
 
 To calculate the energy level population of hypefine ground-state levels of muonic hydrgoen under this sceneario we can use the following script:
