@@ -41,7 +41,7 @@ where the 2-level system is treated as a particular case of the more complete 3-
  1. `cavityField_doppVel` - new velocity sampled from a MB distribution at each pulse reflection (lighter computation)
  2. `cavityField_doppPath` - random path motion generated at each reflection (heavier computation)
     
-    As far as it has been tested both implementation produce equivalent results. Note that with `cavityField_doppPath` the only effect of collisions in the field is to shift the Doppler frequency. Collision damping is still added in the population dynamics through apporpriate decay rates in the Bloch equations.
+    As far as it has been tested both implementations produce equivalent results. Note that with `cavityField_doppPath` the only effect of collisions in the field is to shift the Doppler frequency. Collision damping is still added in the population dynamics through apporpriate decay rates in the Bloch equations.
     
 - `solveBlochRK4_3lvl` can be used to calculate the populations of both 2- and 3- level systems. The dynamics of these systems will depend on the input parameters of the function. 
   - The input `params` is where the detune fequency and decay rates are defined
@@ -50,6 +50,28 @@ where the 2-level system is treated as a particular case of the more complete 3-
    
 ## Example Uses
 
+#### 1. 2-level system with constant amplitude field
+
+```
+import numpy as np
+import bloch
+
+#define the time array
+t = np.arange(0, 10*np.pi, 0.1)
+
+#define the desired paramters
+rabi = 1.0
+detune = 0.0
+gamma_sp = rabi/5 #spontaneous emission rate
+
+params = np.array([detune, gamma_sp, 0.0, 0.0, 0.0, 0.0]) #advisable to define params as a numpy array
+
+#bound condition
+bound = np.array([1.0+0.0j, 0.0j, 0.0j, 0.0j])
+
+#calculate the populations
+rho = bloch.solveBlochRK4_3lvl(t, rabi, params, bound)
+
+```
 
 
-#### 
