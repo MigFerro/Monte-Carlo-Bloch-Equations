@@ -146,9 +146,10 @@ def bloch_3lvl(t, rho, rabi, params):
 	gamma_el11 = params[2]
 	gamma_el22 = params[3]
 	gamma_inel = params[4]
+	gamma_l = params[5]
 
 	gamma_p = gamma_sp #population broadening
-	gamma_c = gamma_sp + gamma_el11 + gamma_el22 + gamma_inel #coherence broadening
+	gamma_c = gamma_sp + gamma_el11 + gamma_el22 + gamma_inel + gamma_l #coherence broadening
 
 	#rho = np.array([rho11, rho12, rho22, rho33])
 
@@ -173,7 +174,7 @@ def solveBlochRK4_3lvl(t, rabi, params, bound):
 
 		t - time values
 		rabi - rabi frequency
-		params - parameters (detune, spont. emission, el. collision, inel. collision)
+		params - parameters (detune, spont. emission, el. collision, inel. collision, laser bandwidth)
 		bound - initial conditions for all populations and coherences
 
 	Return

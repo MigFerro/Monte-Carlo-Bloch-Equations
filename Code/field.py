@@ -140,28 +140,6 @@ def normConst_gaussSq(tau):
 
 
 
-@vectorize
-def gauss_normSq(t, t0, tau):
-
-	'''
-	Normalized Gausian pulse such that Integral( Gauss^2 ) = 1.0
-
-	Input
-
-		t - time value
-		t0 - center of the Gaussian pulse
-		tau - width (standard deviation) of the Gaussian pulse
-
-	Return
-
-		Normalized Gaussian pulse value at t
-
-	'''
-
-	return normConst_gaussSq(tau)*gauss(t, t0, tau)
-
-
-
 # time array considerations
 
 
