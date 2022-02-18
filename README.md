@@ -35,8 +35,6 @@ where the 2-level system is treated as a particular case of the more complete 3-
 
 ### Observations
 
-#- This code was built for the study of the energy level populations of the ground-state hyperfine levels of muonic hydrogen, hence the very specific #constants defined in constants.py
-
 - Two possibilities where implemented for introducing the Doppler effect in the cavity electric field:
  1. `cavityField_doppVel` - new velocity sampled from a MB distribution at each pulse reflection (lighter computation)
  2. `cavityField_doppPath` - random path motion generated at each reflection (heavier computation)
