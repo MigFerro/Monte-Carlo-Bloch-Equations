@@ -102,7 +102,7 @@ def solveBlochRK4_3lvl(t, rabi, params, bound):
 
 
 @njit(parallel = True)
-def solveAverage_field_3lvl(t, rabi, params, bound, nsim):
+def solveAverage_3lvl(t, rabi, params, bound, nsim):
 
 	'''
 	Solves the Bloch equations numerically with Runge-Kutta (4th order) method
