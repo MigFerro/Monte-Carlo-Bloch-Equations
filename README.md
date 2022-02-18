@@ -35,7 +35,7 @@ where the 2-level system is treated as a particular case of the more complete 3-
 
 ### Observations
 
-- This code was built for the study of the energy level populations of the ground-state hyperfine levels of muonic hydrogen, hence the very specific constants defined in constants.py
+#- This code was built for the study of the energy level populations of the ground-state hyperfine levels of muonic hydrogen, hence the very specific #constants defined in constants.py
 
 - Two possibilities where implemented for introducing the Doppler effect in the cavity electric field:
  1. `cavityField_doppVel` - new velocity sampled from a MB distribution at each pulse reflection (lighter computation)
@@ -87,73 +87,3 @@ Producing the populations:
 <p align="center" width="100%">
     <img src="./img/example_1.png" width="800">
 </p>
-
-
-#### 1. 3-level system with Doppler-shifted cavity field (with random path) - Muonic hydrogen case 
-
-Consider a 3-level system with inelastic collisions to a _dark state_, as represented by the scheme:
-
-<p align="center" width="100%">
-    <img src="./img/3level_system.png" width="400">
-</p>
-
-To calculate the energy level population of hypefine ground-state levels of muonic hydrgoen under this sceneario we can use the following script:
-
-```python
-
-import numpy as np
-import constants as ct
-import field
-import bloch
-
-#define cavity conditions
-R = 0.995 #reflectivity
-D = 10.0E-2 #diameter (m)
-
-#define gas conditions
-T = 50 #Temperature (K)
-m = ct.m_muH #mass of muH 
-
-#define collision rates
-elastic_11 = 10.0E6 #elastic rate of the lower level |1> (Hz)
-elastic_22 = 15.0E6 #elastic rate of the upper level |2> (Hz)
-inelastic = 20.0E6 #inelastic collision rate |2> -> |3> (Hz)
-
-#laser parameters
-detune = 0
-carrier_freq = 2*np.pi*44.2E12 #resonant frequency of the muH ground-state HFS transition (rad/s)
-tau = 100.0E-9 #laser pulse duration (s)
-F = 0.5E4 #fluence of the emitted laser pulse (J/m^2)
-bandwidth = 2*np.pi*10.0E6 #laser bandwidth (rad/s)
-
-#atomic transition parameters
-gamma_sp = 0 #spontaneous emission
-Melem = ct.MM1 #matrix element of the transition
-
-minAmp = 0.01 #amplitude percentage of the last calculated reflection (=1% of the emitted pulse's amplitude)
-
-t0 = 4*tau #arrival of the emitted pulse at the center of the cavity
-
-#calculate the field
-Efield, t,_ = field.cavityField_doppPath(tau, t0, D, R, minAmp, m, T, elastic_11+elastic_22, carrier_freq) 
-
-#calculate Rabi frequency
-rabi = bl.rabiFreq(Efield, F, Melem)
-
-#define paramters for Bloch equations
-params = np.array([detune, gamma_sp, elastic_11, elastic_22, inelastic, bandwidth]) #advisable to define params as a numpy array
-
-#bound condition
-bound = np.array([1.0+0.0j, 0.0j, 0.0j, 0.0j])
-
-#calculate the populations
-rho = bloch.solveBlochRK4_3lvl(t, rabi, params, bound)
-```
-
-Plotting the results:
-
-<p align="center" width="100%">
-    <img src="./img/example_2.png" width="800">
-</p>
-
-**Note:** these results will be different at every try - field has a random nature
