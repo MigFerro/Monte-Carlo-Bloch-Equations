@@ -106,8 +106,9 @@ T = 50 #Temperature (K)
 m = 1*ct.u #mass of the atoms (kg) 
 
 #laser parameters
-detune = 0
-carrier_freq = 2*np.pi*100E6 #resonant frequency of the muH ground-state HFS transition (rad/s)
+carrier_freq = 2*np.pi*100E6 #emitted laser frequency (rad/s)
+trans_freq = 2*np.pi*100E6 #resonant angular frequency of the system's transition (rad/s)
+detune = trans_freq - carrier_freq #frequency detune (rad/s)
 tau = 1.0E-6 #laser pulse duration (s)
 bandwidth = 2*np.pi*0.5E6 #laser bandwidth (rad/s)
 
