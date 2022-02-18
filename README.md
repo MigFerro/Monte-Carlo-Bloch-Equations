@@ -87,3 +87,59 @@ Producing the populations:
 <p align="center" width="100%">
     <img src="./img/example_1.png" width="800">
 </p>
+
+
+#### 2. 2-level system with Doppler-shifted cavity field
+
+Consider now an equivalent 2-level system excited by the electric field of a laser inside a cavity. This field will have many reflections. We consider here that at each reflection the field interacts with an atom with a new velocity sampled from a MB distribution.
+
+```python
+import numpy as np
+import constants as ct
+import field
+import bloch
+
+#define cavity conditions
+R = 0.995 #reflectivity
+D = 10.0E-2 #diameter (m)
+
+#define gas conditions
+T = 50 #Temperature (K)
+m = 1*ct.u #mass of the atoms (kg) 
+
+#laser parameters
+detune = 0
+carrier_freq = 2*np.pi*100E6 #resonant frequency of the muH ground-state HFS transition (rad/s)
+tau = 1.0E-6 #laser pulse duration (s)
+bandwidth = 2*np.pi*0.5E6 #laser bandwidth (rad/s)
+
+minAmp = 0.01 #amplitude percentage of the last calculated reflection (=1% of the emitted pulse's amplitude)
+
+t0 = 4*tau #arrival of the emitted pulse at the center of the cavity
+
+#calculate the field
+Efield, t,_ = field.cavityField_doppVel(tau, t0, D, R, m, T, carrier_freq, minAmp) 
+
+#rabi frequency
+rabiAmp = 2*np.pi*1.0E6 #max rabi frequency
+rabi = rabiAmp*Efield/field.normConst_gaussSq(tau)
+
+#define paramters for Bloch equations
+params = np.array([detune, 0.0, 0.0, 0.0, 0.0, bandwidth]) #advisable to define params as a numpy array
+
+#bound condition
+bound = np.array([1.0+0.0j, 0.0j, 0.0j, 0.0j])
+
+#calculate the populations
+rho = bloch.solveBlochRK4_3lvl(t, rabi, params, bound)
+```
+
+For such a field we obtain the followin populations:
+
+<p align="center" width="100%">
+    <img src="./img/example_2.png" width="800">
+</p>
+
+**Note:** The population dynamics will be different at each run, given that the field has a certain random nature.
+
+
