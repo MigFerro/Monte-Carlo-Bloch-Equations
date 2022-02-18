@@ -528,7 +528,7 @@ def doppler_wave(t, m, T, collision_rate, freq, phase):
 
 
 @njit
-def cavityField_doppPath(tau, t0, D, R, minAmp, m, T, collision_rate, carrier_freq):
+def cavityField_doppPath(tau, t0, D, R, m, T, collision_rate, carrier_freq, minAmp):
 
 	'''
 	Simulates the Doppler-shifted electric field inside the laser cavity
@@ -612,7 +612,7 @@ def cavityField_doppPath_rawCycle(t, tau, t0, D, R, m, T, collision_rate, carrie
 
 
 @njit(parallel=True)
-def simul_fields_doppPath(nsim, tau, D, R, m, T, collision_rate, carrier_freq):
+def simul_fields_doppPath(nsim, tau, D, R, m, T, collision_rate, carrier_freq, minAmp=0.01):
 
 	'''
 	Generates several Doppler shifted cavity fields in a cycle (parallelized with Numba)
